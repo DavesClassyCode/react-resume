@@ -18,22 +18,74 @@
     </script>
     <script type="text/babel">
 
-        function Resume(props) {
+        function ResumeMain(props) {
             console.log(props)
             return (
+                <main>
+                    <img src={props.imgSource} alt="Candidate Photo" height="300" />
+
+                    <section>
+                        <header>
+                            <h3>Contact Info:</h3>
+                        </header>
+                        <address>
+                            <ul>
+                                <li>{props.studentName}</li>
+                                <li>Email: <a href={props.email}>{props.email}</a></li>
+                                <li>Phone: {props.phone}</li>
+                            </ul>
+                        </address>
+                    </section>
+
+                    <section>
+                        <header>
+                            <h3>Education:</h3>
+                        </header>
+                        <h4>{props.school}</h4>
+                        <p><i>{props.degree}</i></p>
+                    </section>
+
+                    <section>
+                        <header>
+                            <h3>Experience:</h3>
+                        </header>
+                        <h4>{props.experienceJob}</h4>
+                        <p>{props.experienceDescription}</p>
+                        <h4>Rocky's: Bartender</h4>
+                        <p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla facilisi. Nunc ex tortor, ullamcorper et rutrum at, elementum sit amet erat.</p>
+                    </section>
+                </main>
+            );
+        }
+
+        function ResumeHeader(props) {
+            return (
                 <header>
-                    {props.children}
+                    <div>
+                        <h1><span>{props.studentName}</span></h1>
+                    </div>
                 </header>
-                );
+            )
         }
 
         // Nested elements inside the App
         ReactDOM.render(
-            <Resume className='resume-class'>
-                <div>
-                    <h1><span>Illiana Student</span></h1>
-                </div>
-            </Resume>,
+            <div>
+                <ResumeHeader
+                    studentName='Illiana Student'
+                />
+                <ResumeMain
+                    className='resume-class'
+                    studentName='Illiana Student'
+                    email='sally@example.com'
+                    phone='555-123-4567'
+                    imgSource='https://m.media-amazon.com/images/M/MV5BMTY5NzE3NzU3MF5BMl5BanBnXkFtZTgwMjg0NTQ5MDE@._V1_.jpg'
+                    school='Wayne State University'
+                    degree='Bachelor of Computer Science'
+                    experienceJob='Car Depot: Sales Specialist'
+                    experienceDescription='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nunc nisl, finibus vel lectus id, tincidunt finibus quam. Sed in bibendum urna. Sed vel molestie arcu.'
+                />
+            </div>,
             document.querySelector('#application-root')
         );
 
