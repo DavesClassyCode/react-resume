@@ -18,24 +18,24 @@
     </script>
     <script type="text/babel">
 
-function App(props) {
-  console.log(props)
-  return (
-    <header>
-        {props.children}
-    </header>
-  );
-}
+        function Resume(props) {
+            console.log(props)
+            return (
+                <header>
+                    {props.children}
+                </header>
+                );
+        }
 
-// Nested elements inside the App
-ReactDOM.render(
-  <App className='my-class'>
-  <div>
-    <h1><span>Current Page Title!</span></h1>
-    </div>
-  </App>,
-  document.querySelector('#application-root')
-);
+        // Nested elements inside the App
+        ReactDOM.render(
+            <Resume className='resume-class'>
+                <div>
+                    <h1><span>Illiana Student</span></h1>
+                </div>
+            </Resume>,
+            document.querySelector('#application-root')
+        );
 
     </script>
 </body>
